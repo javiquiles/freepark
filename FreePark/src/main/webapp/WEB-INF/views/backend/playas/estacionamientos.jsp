@@ -81,8 +81,7 @@
 											</div>
 										</spring:bind></td>
 
-									<td><button type="submit" class="btn btn-success"
-											aria-label="Left Align" title="Agregar">
+									<td><button type="submit" class="close" title="Agregar">
 											<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
 										</button></td>
 

@@ -22,10 +22,6 @@ import com.freepark.domain.Playa;
 import com.freepark.service.impl.EstacionamientoServiceImpl;
 import com.freepark.service.impl.PlayaServiceImpl;
 
-/**
- * Handles requests for the application home page.
- */
-
 @Controller
 @RequestMapping("backend/playas/")
 public class PlayaController {
