@@ -1,5 +1,7 @@
 package com.freepark.domain;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -37,6 +41,17 @@ public class Estacionamiento {
 	@JoinColumn(name="playa_id")
 	private Playa playa;
 	
+	@OneToOne(fetch = FetchType.EAGER, mappedBy = "estacionamiento")
+	private Reserva reserva;
+	
+	public Reserva getReserva() {
+		return reserva;
+	}
+
+	public void setReserva(Reserva reserva) {
+		this.reserva = reserva;
+	}
+
 	public Long getId() {
 		return id;
 	}

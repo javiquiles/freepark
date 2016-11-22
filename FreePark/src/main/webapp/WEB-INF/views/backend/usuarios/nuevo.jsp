@@ -9,7 +9,7 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Formulario</div>
 				<div class="panel-body">
-					<form:form nethod="POST" id="form" modelAttribute="usuarioDatos"
+					<form:form method="POST" id="form" modelAttribute="usuarioDatos"
 						role="form" cssClass="form-horizontal">
 						
 						<spring:bind path="apellido">

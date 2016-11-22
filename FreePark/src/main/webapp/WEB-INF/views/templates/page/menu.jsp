@@ -1,4 +1,4 @@
-<%@ include file="/WEB-INF/views/templates/layout/tags.jsp"%>
+<%@ include file="/WEB-INF/views/middle/templates/layout/tags.jsp"%>
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container-fluid">
 		<div class="navbar-header">

@@ -1,6 +1,7 @@
 package com.freepark.domain;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,14 +9,10 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "playas")
@@ -39,13 +36,13 @@ public class Playa {
 	private String longitud;
 
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "playa")
-	private List<Estacionamiento> estacionamientos;
+	private Set<Estacionamiento> estacionamientos;
 
-	public List<Estacionamiento> getEstacionamientos() {
+	public Set<Estacionamiento> getEstacionamientos() {
 		return estacionamientos;
 	}
 
-	public void setEstacionamientos(List<Estacionamiento> estacionamientos) {
+	public void setEstacionamientos(Set<Estacionamiento> estacionamientos) {
 		this.estacionamientos = estacionamientos;
 	}
 
