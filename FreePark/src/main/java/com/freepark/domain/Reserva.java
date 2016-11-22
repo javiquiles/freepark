@@ -28,12 +28,10 @@ public class Reserva implements java.io.Serializable {
 	@Column(name="id")
 	private Long id;
 	
-	@NotNull
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="usuarios_id")
 	private Usuario usuario;
 	
-	@NotNull
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="vehiculos_id")
 	private Vehiculo vehiculo;

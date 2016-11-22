@@ -1,6 +1,6 @@
 package com.freepark.controller.frontend;
 
-import java.util.List;
+import java.util.Set;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.sql.Date;
@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -103,7 +102,7 @@ public class FrontendController {
 	@RequestMapping(value = "{id}/infoplaya", method = RequestMethod.POST)
 	public String crearReserva(@PathVariable Long id, @Valid Reserva reserva) {
 		date = new Date(System.currentTimeMillis());
-		List<Estacionamiento> estacionamientos = playaService.findById(id).getEstacionamientos();
+		Set<Estacionamiento> estacionamientos = playaService.findById(id).getEstacionamientos();
 
 		for (Estacionamiento e : estacionamientos) {
 			try {
