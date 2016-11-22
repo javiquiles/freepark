@@ -44,11 +44,6 @@
 		<put-attribute name="js_footer" 	value="base.javascript" />
 	</definition>
 	
-	<!-- Formulario-->
-	<definition name="formulario" extends="defaultTemplate">
-		<put-attribute name="js_footer" value="validator.javascript" />
-	</definition>
-	
 	<definition name="gmaps.javascripts" extends="base.javascript">
 		<put-list-attribute name="javascripts" inherit="true">
 			<add-attribute value="http://maps.google.com/maps/api/js?key=AIzaSyCN5nRASyLjmACVK9ZfBxZ34MfhCcaghZA" />
@@ -65,6 +60,26 @@
 		<put-list-attribute name="javascripts" inherit="true">
 			<add-attribute value="/resources/js/validate/validator.js" />
 		</put-list-attribute>
+	</definition>
+	
+	<definition name="app.javascript" extends="base.javascript">
+		<put-list-attribute name="javascripts" inherit="true">
+			<add-attribute value="/resources/js/App.js" />
+		</put-list-attribute>
+	</definition>
+	
+	<definition name="AppTemplate" extends="frontendTemplate">
+		<put-attribute name="js_footer" value="app.javascript"/>
+	</definition>
+	
+	<definition name="client.javascript" extends="base.javascript">
+		<put-list-attribute name="javascripts" inherit="true">
+			<add-attribute value="/resources/js/Client.js" />
+		</put-list-attribute>
+	</definition>
+	
+	<definition name="ClientTemplate" extends="frontendTemplate">
+		<put-attribute name="js_footer" value="client.javascript"/>
 	</definition>
 	
 </tiles-definitions>

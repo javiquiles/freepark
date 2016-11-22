@@ -14,7 +14,7 @@ import com.freepark.domain.Usuario;
 import com.freepark.repository.UsuarioRepository;
 
 @Service
-public class UsuarioServiceImpl extends ServiceImpl<Usuario, Long> implements UserDetailsService{
+public class UsuarioServiceImpl extends ServiceImpl<Usuario, Long>{
 	
 	@Autowired
 	private UsuarioRepository dao;
@@ -47,19 +47,26 @@ public class UsuarioServiceImpl extends ServiceImpl<Usuario, Long> implements Us
 	}
 
 	@Override
-	public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
-		Usuario usuario = findUsername(login);
-		if (usuario != null){
-			return usuario;	
-		}else{
-			return null;
-		}
-		
+	public void removeById(Long id) {
+		super.removeById(id);
 	}
 
 	@Override
-	public void removeById(Long id) {
-		super.removeById(id);
+	public void remove(Usuario entity) {
+		// TODO Auto-generated method stub
+		super.remove(entity);
+	}
+
+	@Override
+	public Usuario findById(Long id) {
+		// TODO Auto-generated method stub
+		return super.findById(id);
+	}
+
+	@Override
+	public List<Usuario> findAll() {
+		// TODO Auto-generated method stub
+		return super.findAll();
 	}
 	
 }

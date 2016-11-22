@@ -88,4 +88,10 @@ public class UsuarioDatos implements java.io.Serializable {
 		this.usuario = usuario;
 	}
 
+	@Override
+	public String toString() {
+		return "UsuarioDatos [id=" + id + ", apellido=" + apellido + ", nombre=" + nombre + ", email=" + email
+				+ ", usuario=" + usuario + "]";
+	}
+
 }

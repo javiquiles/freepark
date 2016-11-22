@@ -1,7 +1,5 @@
 package com.freepark.domain;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -19,15 +17,11 @@ import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 @Entity
 @Table(name = "usuarios")
-public class Usuario implements UserDetails, java.io.Serializable {
+public class Usuario implements java.io.Serializable{
 
-	private static final long serialVersionUID = -5139082757236093648L;
+	private static final long serialVersionUID = -1934822372674563491L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -64,7 +58,7 @@ public class Usuario implements UserDetails, java.io.Serializable {
 	private List<Vehiculo> vehiculos;
 
 	public Usuario() {
-
+		super();
 	}
 
 	public Usuario(String username, String password) {
@@ -120,40 +114,15 @@ public class Usuario implements UserDetails, java.io.Serializable {
 		this.vehiculos = vehiculos;
 	}
 
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-		authorities.add(new SimpleGrantedAuthority(roles.getTipo()));
-		return authorities;
-	}
-
 	public void setUsername(String username) {
 		this.username = username;
 	}
 
-	@Override
+	
 	public String getUsername() {
 		return this.username;
 	}
-	
-	@Override
-	public boolean isAccountNonExpired() {
-		// TODO Auto-generated method stub
-		return true;
-	}
 
-	@Override
-	public boolean isAccountNonLocked() {
-		return true;
-	}
-
-	@Override
-	public boolean isCredentialsNonExpired() {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
-	@Override
 	public boolean isEnabled() {
 		return enabled;
 	}
@@ -191,7 +160,8 @@ public class Usuario implements UserDetails, java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", username=" + username + ", enabled=" + enabled + ", vehiculos=" + vehiculos.get(0) + "]";
+		return "Usuario [id=" + id + ", username=" + username + ", roles=" + roles + ", enabled=" + enabled
+				+ ", vehiculos=" + vehiculos + "]";
 	}
 
 }

@@ -17,7 +17,10 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "vehiculos")
-public class Vehiculo {
+public class Vehiculo implements java.io.Serializable{
+	
+	private static final long serialVersionUID = 9041491098740114916L;
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
@@ -46,13 +49,7 @@ public class Vehiculo {
 	private List<Usuario> usuario;
 	
 	public Vehiculo() {
-
-	}
-
-	public Vehiculo(String patente, String marca, String modelo) {
-		this.patente = patente;
-		this.marca = marca;
-		this.modelo = modelo;
+		super();
 	}
 
 	public Long getId() {

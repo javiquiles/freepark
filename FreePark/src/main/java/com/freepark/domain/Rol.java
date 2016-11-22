@@ -56,5 +56,10 @@ public class Rol implements java.io.Serializable {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
+
+	@Override
+	public String toString() {
+		return "Rol [id=" + id + ", nombre=" + nombre + ", tipo=" + tipo + "]";
+	}
 	
 }

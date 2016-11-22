@@ -33,6 +33,7 @@ public class UsuarioController {
 
 	private static final String URL_INDEX = "backend/usuarios/index";
 	private static final String URL_EDITAR = "backend/usuarios/editar";
+	private static final String URL_NUEVO = "backend/usuarios/nuevo";
 	private static final String URL_REDIRECT = "redirect:/backend/usuarios/";
 	
 	private static final Logger logger = LoggerFactory.getLogger(UsuarioController.class);
@@ -59,12 +60,14 @@ public class UsuarioController {
 	public String nuevo(Model model){
 		model.addAttribute("usuarioDatos", new UsuarioDatos());
 		model.addAttribute("roles", rolServiceImpl.findAll());
-		return "usuarios/nuevo";
+		return URL_NUEVO;
 	}
 	
 	@RequestMapping(value="/nuevo", method= RequestMethod.POST)
 	public String form(@Valid UsuarioDatos usuarioDatos, BindingResult result,
 			Model model, final RedirectAttributes redirectAttributes){
+		
+		logger.info(usuarioDatos.toString());
 		Usuario user = usuarioDatos.getUsuario();
 		passwordValidator.setAtributo("usuario.password");
 		passwordValidator.validate(user, result);
@@ -80,7 +83,7 @@ public class UsuarioController {
 			}
 		}
 		model.addAttribute("roles", rolServiceImpl.findAll());
-		return "usuarios/nuevo";
+		return URL_NUEVO;
 	}
 	
 	@RequestMapping(value = "/{id}/editar", method = RequestMethod.GET)

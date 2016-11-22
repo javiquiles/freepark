@@ -21,7 +21,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name = "reservas")
 public class Reserva implements java.io.Serializable {
 	
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -829214977150365087L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -56,7 +56,7 @@ public class Reserva implements java.io.Serializable {
 	private Estacionamiento estacionamiento;
 	
 	public Reserva() {
-		
+		super();
 	}
 
 	public Long getId() {

@@ -39,4 +39,6 @@ public class EstacionamientoServiceImpl extends ServiceImpl<Estacionamiento, Lon
 		return super.findAll();
 	}
 	
+	
+	
 }
