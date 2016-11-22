@@ -14,6 +14,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "playas")
 public class Playa implements java.io.Serializable{
@@ -41,6 +43,7 @@ public class Playa implements java.io.Serializable{
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "playa")
 	private Set<Estacionamiento> estacionamientos;
 
+	@JsonIgnore
 	public Set<Estacionamiento> getEstacionamientos() {
 		return estacionamientos;
 	}

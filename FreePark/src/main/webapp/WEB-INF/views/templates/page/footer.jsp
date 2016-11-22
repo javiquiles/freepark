@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="/WEB-INF/views/middle/templates/layout/tags.jsp"%>
+<%@ include file="/WEB-INF/views/templates/layout/tags.jsp"%>
 <jsp:useBean id="now" class="java.util.Date" scope="page" />
-<footer style="background-color:#333">
+<footer class="navbar navbar-fixed-bottom" style="background-color:#333">
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-xs-12 col-md-6">
