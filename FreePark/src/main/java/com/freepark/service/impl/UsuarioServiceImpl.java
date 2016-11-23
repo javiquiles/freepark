@@ -1,12 +1,8 @@
 package com.freepark.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -19,17 +15,10 @@ public class UsuarioServiceImpl extends ServiceImpl<Usuario, Long>{
 	@Autowired
 	private UsuarioRepository dao;
 	
-	private Usuario findUsername(String username) {
-		List<Usuario> usuarioList = new ArrayList<Usuario>();
-
-		usuarioList = dao.findUsername(username);
-		if (usuarioList.size() > 0) {
-			return usuarioList.get(0);
-		} else {
-			return null;
-		}
+	public Usuario findByUsername(String username) {
+		return dao.findByUsername(username);
 	}
-
+	
 	@Override
 	public void create(Usuario entity) {
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
