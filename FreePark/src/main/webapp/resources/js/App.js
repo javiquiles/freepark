@@ -8,7 +8,7 @@ $(document).ready(
 										$("#reservar").addClass("disabled");
 										
 										var notificacion = {
-											"idEmisor" : 24,
+											"idEmisor" : 27,
 											"idReceptor" : playa,
 											"tipo" : "peticion"
 										};

@@ -70,7 +70,7 @@ public class FrontendController {
 	public String infoPlaya(@PathVariable Long id, Model model) {
 		date = new Date(System.currentTimeMillis());
 		Playa playa = playaService.findById(id);
-		Usuario usuario = usuarioService.findById((long) 24);
+		Usuario usuario = usuarioService.findById((long) 27);
 		model.addAttribute("playa", playa);
 		model.addAttribute("usuario", usuario);
 		model.addAttribute("reserva", new Reserva());
