@@ -50,6 +50,9 @@
 					</form:form>
 				</div>
 			</div>
+			<script>
+				var playa = ${playa.id}
+			</script>
 		</tiles:putAttribute>
 	</tiles:insertDefinition>
 </div>

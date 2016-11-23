@@ -44,13 +44,13 @@ public class SeguridadController {
 	@Autowired
 	private PasswordValidator passwordValidator;
 
-//	@RequestMapping(value = "/{id}/editar", method = RequestMethod.GET)
-//	public String editar(@PathVariable("id") Long id, Model model) {
-//		SeguridadForm seguridadForm = new SeguridadForm(serviceImpl.findById(id));
-//		model.addAttribute("seguridadForm", seguridadForm);
-//		model.addAttribute("roles", rolServiceImpl.findAll());
-//		return URL_EDITAR;
-//	}
+	@RequestMapping(value = "/{id}/editar", method = RequestMethod.GET)
+	public String editar(@PathVariable("id") Long id, Model model) {
+		SeguridadForm seguridadForm = new SeguridadForm(serviceImpl.findById(id));
+		model.addAttribute("seguridadForm", seguridadForm);
+		model.addAttribute("roles", rolServiceImpl.findAll());
+		return URL_EDITAR;
+	}
 
 	@RequestMapping(value = "/{id}/editar", method = RequestMethod.POST)
 	public String formEditar(@PathVariable("id") Long id,

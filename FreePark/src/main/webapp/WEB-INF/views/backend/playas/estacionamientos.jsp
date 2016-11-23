@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/templates/layout/tags.jsp"%>
 <%@ page session="false"%>
-<tiles:insertDefinition name="formulario">
+<tiles:insertDefinition name="defaultTemplate">
 	<tiles:putAttribute name="body">
 		<div class="container" style="margin-top: 60px;">
 			<h1>
@@ -71,8 +71,9 @@
 											<div class="form-group ${status.error ? 'has-error' : '' }">
 												<div>
 													<form:select path="techo" cssClass="form-control">
-														<form:option value="false">No Disponible</form:option>
 														<form:option value="true">Disponible</form:option>
+														<form:option value="false">No Disponible</form:option>
+
 													</form:select>
 													<c:if test="${status.error}">
 														<span class="text-danger">${status.errorMessage}</span>

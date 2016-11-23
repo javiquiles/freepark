@@ -32,6 +32,7 @@ public class MiddleController {
 	private static final String URL_NUEVO = "middle/nuevo";
 	private static final String URL_INFO = "middle/info";
 	private static final String URL_REDIRECT = "redirect:/middle/";
+	private Date date;
 	private static final Logger logger = LoggerFactory.getLogger(MiddleController.class);
 	
 	@Autowired
@@ -42,9 +43,6 @@ public class MiddleController {
 	
 	@Autowired
 	private EstacionamientoServiceImpl estacionamientoServiceImpl;
-	
-	private Long id_playa = (long) 21;
-	private Date date;
 	
 	@InitBinder
 	protected void reservaBinder(WebDataBinder binder) {
@@ -57,7 +55,7 @@ public class MiddleController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(Model model) {	
 		date = new Date(System.currentTimeMillis());
-		model.addAttribute("playa", playaServiceImpl.findById(id_playa));
+		model.addAttribute("playa", playaServiceImpl.findById((long) 30));
 		model.addAttribute("fechaActual", date);
 		return URL_INDEX;
 	}
@@ -65,6 +63,7 @@ public class MiddleController {
 	@RequestMapping(value = "/nuevo/{id_estacionamiento}", method = RequestMethod.GET)
 	public String nuevo(@Valid @PathVariable("id_estacionamiento") Long id_estacionamiento, Model model) {
 		model.addAttribute("reserva", new Reserva());
+		model.addAttribute("playa", playaServiceImpl.findById((long) 30));
 		model.addAttribute("id_estacionamiento", id_estacionamiento);
 		return URL_NUEVO;
 	}
@@ -87,6 +86,8 @@ public class MiddleController {
 	@RequestMapping(value = "/info/{id_estacionamiento}", method = RequestMethod.GET)
 	public String info(@Valid @PathVariable("id_estacionamiento") Long id_estacionamiento, Model model) {	
 		model.addAttribute("estacionamiento", estacionamientoServiceImpl.findById(id_estacionamiento));
+		model.addAttribute("playa", playaServiceImpl.findById((long) 30));
+
 		return URL_INFO;
 	}
 	

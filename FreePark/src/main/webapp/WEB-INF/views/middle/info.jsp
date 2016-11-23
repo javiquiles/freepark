@@ -32,6 +32,9 @@
 			</table>
 			
 			<a class="btn btn-primary" role="button" href='<c:url value="/middle/" />' title="Volver">Volver</a>
+			<script>
+				var playa = ${playa.id}
+			</script>
 		</tiles:putAttribute>
 	</tiles:insertDefinition>
 </div>

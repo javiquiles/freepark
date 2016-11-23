@@ -14,8 +14,15 @@ $(document).ready(function(){
             lat: position.coords.latitude,
             lng: position.coords.longitude,
             infoWindow: {
-            	content: "Aca estamos"
-            }
+            	content: "Usted est&aacute; aqu&iacute;"
+            },
+            mouseover: function(e) {
+  			  this.infoWindow.open(map, this)
+  				  },
+  		  mouseout: function(){
+  			  this.infoWindow.close()
+  		  },
+            icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
         });
 	  },
 	  error: function(error) {
@@ -37,6 +44,7 @@ $(document).ready(function(){
 		  infoWindow: {
 			  content: playa.nombre
 		  },
+		  icon: 'http://maps.google.com/mapfiles/kml/pal4/icon54.png',
 		  click: function(e) {
 			  window.location =  playa.id + '/infoplaya';
 			  },

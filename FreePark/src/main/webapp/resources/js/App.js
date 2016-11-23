@@ -8,7 +8,7 @@ $(document).ready(
 										$("#reservar").addClass("disabled");
 										
 										var notificacion = {
-											"idEmisor" : 17,
+											"idEmisor" : 24,
 											"idReceptor" : playa,
 											"tipo" : "peticion"
 										};
@@ -22,15 +22,16 @@ $(document).ready(
 															.stringify(notificacion),
 													success : function(e) {
 														if (e) {
-															$(".container").append('<div style="position:fixed; top: 70px; right:10px;"><div class="alert alert-danger alert-dismissible fade in" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span></button><h4>Felicidades! Ya tienes tu lugar!</h4><p>La reserva se completo exitosamente.</p><p><a class="btn btn-danger" href="" data-dismiss="alert">Ver Detalles</a></p></div></div>')
+															$(".container").append('<div style="position:fixed; top: 70px; right:10px;"><div class="alert alert-danger alert-dismissible fade in" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span></button><h4>Felicidades! Ya tienes tu lugar!</h4><p>La reserva se completo exitosamente.</p></div></div>')
+															$("#form").submit();
 														} else {
 															$(".container").append('<div style="position: fixed; top: 70px; right: 10px;"><div class="alert alert-danger alert-dismissible fade in"role="alert"><button type="button" class="close" data-dismiss="alert"aria-label="Close"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span></button><h4>Uups! Tu solicitud fue rechazada!</h4><p>Vuelve a intentarlo en un momento.</p></div></div>')
 														}
+														
+					
+														$("#reservar").removeClass("disabled");
 													}
 												
-												}).done(function(){
-													$("#form").submit();
-													$("#reservar").removeClass("disabled");
 												})
 
 									})

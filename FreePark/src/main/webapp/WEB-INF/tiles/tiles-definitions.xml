@@ -23,6 +23,12 @@
 			<add-attribute value="/resources/js/bootstrap.min.js" />
 		</put-list-attribute>
 	</definition>
+	
+	<definition name="client.javascript" extends="base.javascript">
+		<put-list-attribute name="javascripts" inherit="true">
+			<add-attribute value="/resources/js/Client.js" />
+		</put-list-attribute>
+	</definition>
 
 	<definition name="defaultTemplate"
 		template="/WEB-INF/views/templates/layout/layout.jsp">
@@ -60,15 +66,9 @@
 		<put-attribute name="menu"
 			value="/WEB-INF/views/middle/templates/page/menu.jsp" />
 		<put-attribute name="tituloPagina" expression="${tituloPagina}" />
-		<put-attribute name="body" value="" />
 		<put-attribute name="footer"
 			value="/WEB-INF/views/middle/templates/page/footer.jsp" />
-		<put-attribute name="js_footer" value="base.javascript" />
-	</definition>
-
-	<!-- Formulario -->
-	<definition name="formulario" extends="defaultTemplate">
-		<put-attribute name="js_footer" value="validator.javascript" />
+		<put-attribute name="js_footer" value="client.javascript" />
 	</definition>
 
 	<definition name="gmaps.javascripts" extends="base.javascript">
@@ -84,12 +84,6 @@
 		<put-attribute name="js_footer" value="gmaps.javascripts" />
 	</definition>
 
-	<definition name="validator.javascript" extends="base.javascript">
-		<put-list-attribute name="javascripts" inherit="true">
-			<add-attribute value="/resources/js/validate/validator.js" />
-		</put-list-attribute>
-	</definition>
-
 	<definition name="app.javascript" extends="base.javascript">
 		<put-list-attribute name="javascripts" inherit="true">
 			<add-attribute value="/resources/js/App.js" />
@@ -100,14 +94,6 @@
 		<put-attribute name="js_footer" value="app.javascript" />
 	</definition>
 
-	<definition name="client.javascript" extends="base.javascript">
-		<put-list-attribute name="javascripts" inherit="true">
-			<add-attribute value="/resources/js/Client.js" />
-		</put-list-attribute>
-	</definition>
-
-	<definition name="ClientTemplate" extends="frontendTemplate">
-		<put-attribute name="js_footer" value="client.javascript" />
-	</definition>
+	
 
 </tiles-definitions>

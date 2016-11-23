@@ -7,7 +7,7 @@
 		<tiles:putAttribute name="body">
 			<h1>Freepark</h1>
 
-			<div id="map" style="width: 720px; height: 440px; margin: 5px 5px 5px 5px;"></div>
+			<div id="map" style="width: auto; height: 450px; margin: 5px 5px 5px 5px;"></div>
 			
 				 	<script>
 				 	

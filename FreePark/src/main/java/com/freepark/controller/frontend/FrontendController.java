@@ -70,11 +70,11 @@ public class FrontendController {
 	public String infoPlaya(@PathVariable Long id, Model model) {
 		date = new Date(System.currentTimeMillis());
 		Playa playa = playaService.findById(id);
-		// Usuario de ejemplo
-		Usuario usuario = usuarioService.findById((long) 13);
+		Usuario usuario = usuarioService.findById((long) 24);
 		model.addAttribute("playa", playa);
 		model.addAttribute("usuario", usuario);
 		model.addAttribute("reserva", new Reserva());
+		
 		int count = 0;
 		int porcentaje = 0;
 
@@ -108,12 +108,13 @@ public class FrontendController {
 			try {
 				logger.info(e.getReserva().toString());
 
-				if (((date.getTime() - e.getReserva().getFechaSalida().getTime()) > 0) || e.getReserva() == null) {
+				if (((date.getTime() - e.getReserva().getFechaSalida().getTime()) > 0)) {
 					reserva.setEstacionamiento(e);
 					break;
 				}
 			} catch (NullPointerException ex) {
-
+				reserva.setEstacionamiento(e);
+				break;
 			}
 		}
 

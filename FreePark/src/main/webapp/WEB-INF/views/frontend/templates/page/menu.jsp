@@ -11,19 +11,5 @@
 			</button>
 			<a class="navbar-brand" href="#">FreePark</a>
 		</div>
-		<div class="collapse navbar-collapse">
-			<form class="navbar-form navbar-right">
-				<div class="form-group">
-					<div class="input-group">
-						<input type="text" class="form-control"
-							placeholder="Search for..."> <span
-							class="input-group-btn">
-							<button class="btn btn-default" type="submit">Go!</button>
-						</span>
-					</div>
-				</div>
-			</form>
-
-		</div>
 	</div>
 </nav>

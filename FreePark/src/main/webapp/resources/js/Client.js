@@ -1,7 +1,7 @@
 $(document).ready(function(){
 		setInterval(function() {
 			c()
-		}, 1000);
+		}, 2000);
 			});
 
 function c(){
@@ -11,10 +11,8 @@ function c(){
 		type: "GET",
 		contentType : "application/json",
 		success: function(e){
-			
 			if(e){
-				
-				var alerta = '<div style="position: fixed; top: 70px; right: 10px;" ><div class="alert alert-danger alert-dismissible fade in" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span></button><h4>Atencion! Solicitud entrante!</h4><p>El usuario ' + e.username + ' solicita una reserva de estacionamiento</p><p><button type="button" data-dismiss="alert" onclick="responder(' + e.id + ', \'Aceptada\')" class="btn btn-danger">Aceptar</button><button type="button" data-dismiss="alert" onclick=responder(' + e.id + ', \'Rechazada\')" class="btn btn-default">Rechazar</button></p></div></div>'
+				var alerta = '<div style="position: fixed; top: 70px; right: 10px;" ><div class="alert alert-danger alert-dismissible fade in" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true" class="glyphicon glyphicon-remove"></span></button><h4>Atencion! Solicitud entrante!</h4><p>El usuario ' + e.username + ' solicita una reserva de estacionamiento</p><p><button type="button" data-dismiss="alert" onclick="responder(' + e.id + ', \'Aceptada\')" class="btn btn-danger">Aceptar</button><button type="button" data-dismiss="alert" onclick="responder(' + e.id + ', \'Rechazada\')" class="btn btn-default">Rechazar</button></p></div></div>'
 				$(".container").append(alerta)
 			}
 		}
